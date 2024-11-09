@@ -29,6 +29,52 @@ namespace GithubActionsLab
             Assert.Throws<ArgumentNullException>(() => Program.Add(null, "1"));
             Assert.Throws<ArgumentNullException>(() => Program.Add(null, null));
         }
+        [Test]
+        public void Subtract_Valid()
+        {
+            Assert.AreEqual(3, Program.Subtract("5", "2"));
+            Assert.AreEqual(5, Program.Subtract("7", "2"));
+            Assert.AreEqual(12, Program.Subtract("19", "7"));
+        }
+
+        [Test]
+        public void Subtract_Invalid()
+        {
+            Assert.Throws<FormatException>(() => Program.Subtract("1", "a"));
+            Assert.Throws<FormatException>(() => Program.Subtract("a", "1"));
+            Assert.Throws<FormatException>(() => Program.Subtract("a", "a"));
+        }
+
+        [Test]
+        public void Subtract_Null()
+        {
+            Assert.Throws<ArgumentNullException>(() => Program.Subtract("1", null));
+            Assert.Throws<ArgumentNullException>(() => Program.Subtract(null, "1"));
+            Assert.Throws<ArgumentNullException>(() => Program.Subtract(null, null));
+        }
+        [Test]
+        public void Multiply_Valid()
+        {
+            Assert.AreEqual(3, Program.Multiply("1", "3"));
+            Assert.AreEqual(6, Program.Multiply("3", "2"));
+            Assert.AreEqual(12, Program.Multiply("3", "4"));
+        }
+
+        [Test]
+        public void Multiply_Invalid()
+        {
+            Assert.Throws<FormatException>(() => Program.Multiply("1", "a"));
+            Assert.Throws<FormatException>(() => Program.Multiply("a", "1"));
+            Assert.Throws<FormatException>(() => Program.Multiply("a", "a"));
+        }
+
+        [Test]
+        public void Multiply_Null()
+        {
+            Assert.Throws<ArgumentNullException>(() => Program.Multiply("1", null));
+            Assert.Throws<ArgumentNullException>(() => Program.Multiply(null, "1"));
+            Assert.Throws<ArgumentNullException>(() => Program.Multiply(null, null));
+        }
 
         // Implement 3 tests per operation, following a similar pattern as above
     }
